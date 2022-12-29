@@ -23,7 +23,7 @@ function App() {
     currentQuoteText: "",
     currentQuoteAuthor: ""
   });
-  const [color, setColor] = useState("#01949A");
+  const [color, setColor] = useState("rgb(1, 148, 154)");
   const [amount, setAmount] = useState(1);
   
 
@@ -67,7 +67,7 @@ function App() {
     }
 
     const changeColor = () => {
-      color==="#01949A" ? setColor("#004369") : color==="#004369" ? setColor("#DB1F48") : setColor("#01949A");
+      color==="rgb(1, 148, 154)" ? setColor("rgb(0, 67, 105)") : color==="rgb(0, 67, 105)" ? setColor("rgb(219, 31, 72)") : setColor("rgb(1, 148, 154)");
     }
 
     const changeAmount = () => {
@@ -79,13 +79,13 @@ function App() {
   }, [])
 
   return (
-    <div className="App" style={{ backgroundColor: color }}>
+    <div data-testid="App" className="App" style={{ backgroundColor: color }}>
       <div className="quote-box">
-        <h1 style={{ color: color }}>Random Quote Generator</h1>
+        <h1 data-testid="title" style={{ color: color }}>Random Quote Generator</h1>
         {amount===1 ? (
           <div id='wrapper'>
             <Quote quote={quotes.currentQuoteText} author={quotes.currentQuoteAuthor} />
-            <div id="buttons">
+            <div data-testid="buttons" id="buttons">
               <button 
                 style={{ color: color, borderColor: color, boxShadow: "2px 2px 10px "+color+" inset, -2px -2px 10px "+color+" inset" }}
                 onClick={updateQuote}>
@@ -98,6 +98,7 @@ function App() {
               </button>
               <button
                 style={{ color: color, borderColor: color, boxShadow: "2px 2px 10px "+color+" inset, -2px -2px 10px "+color+" inset" }}
+                data-testid="amount"
                 onClick={changeAmount}>
                   {amount===1 ? (
                     'More Quotes?'
@@ -109,12 +110,12 @@ function App() {
           </div>
         ) : (
         <div id="wrapper">
-          <div id="buttons">
+          <div data-testid="buttons" id="buttons">
             <button 
               style={{ color: color, borderColor: color, boxShadow: "2px 2px 10px "+color+" inset, -2px -2px 10px "+color+" inset" }}
               onClick={updateQuote}>
                 New Quote{amount > 1 && "s"}!
-              </button>
+            </button>
             <button
               style={{ color: color, borderColor: color, boxShadow: "2px 2px 10px "+color+" inset, -2px -2px 10px "+color+" inset" }}
               onClick={changeColor}>
@@ -122,6 +123,7 @@ function App() {
             </button>
             <button
               style={{ color: color, borderColor: color, boxShadow: "2px 2px 10px "+color+" inset, -2px -2px 10px "+color+" inset" }}
+              data-testid="amount"
               onClick={changeAmount}>
                 {amount===1 ? (
                   'More Quotes?'
