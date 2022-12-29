@@ -1,10 +1,18 @@
 button {
   margin: 5px;
+  height: 60px;
+  width: 120px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+button:active {
+  transform: translateY(4px);
 }
 
 .App {
   text-align: center;
-  height: 98vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,9 +21,12 @@ button {
 
 .quote-box {
   display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
   flex-direction: column;
   align-items: center;
   background-color: white;
+  max-width: 90%;
   border-radius: 5px;
   padding: 10px;
 }
@@ -30,4 +41,5 @@ button {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 20px;
 }
