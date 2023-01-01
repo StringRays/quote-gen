@@ -7,7 +7,7 @@ interface quoteProps {
 
 function Quote(props: quoteProps) {
   return (
-    <div className="quote-wrapper">
+    <div data-testid="quote" className="quote-wrapper">
         <div id="text">"{props.quote}"</div>
         <div id="author">- {props.author}</div>
     </div>

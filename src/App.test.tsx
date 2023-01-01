@@ -38,4 +38,12 @@ describe("Tests app", () => {
     fireEvent.click(screen.getByText(/Change Color/i));
     checkAll('rgb(1, 148, 154)');
   })
+  it("Number of quotes present is initially one", () => {
+    render(<App />);
+    const quoteElements = screen.getAllByTestId('quote');
+    const changeAmount = screen.getByText(/More Quotes?/i);
+
+    expect(quoteElements.length).toEqual(1);
+    expect(changeAmount).toBeInTheDocument();
+  });
 });
